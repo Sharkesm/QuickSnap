@@ -24,14 +24,23 @@ namespace CardGames
 
 			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
 			{
-<<<<<<< HEAD
 				myGame.FlipNextCard ();
-						}
-=======
-				myGame.Start();   // Starts the game 
+				myGame.Start ();   // Starts the game 
 			}
->>>>>>> f51ac80... * Snap.cs: - Add draw it in the game - Stop game once user hits a card
-		}
+
+
+
+			if (myGame.IsStarted) {
+				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					// TODO: Add sound effects 
+				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
+					myGame.PlayerHit (0); // User hits first card
+				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					myGame.PlayerHit (1); // User hits second card
+				}
+			}
+				
+			}
 
 		/// <summary>
 		/// Draws the game to the Window.
